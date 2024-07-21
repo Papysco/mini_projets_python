@@ -2,10 +2,10 @@ import datetime
 
 
 class Note:
-    compteur = 0
+    compteur = 1
 
     def __init__(self, title, description):
-        self.id = self.compteur + 1
+        self.id = self.compteur
         self.title = title
         self.description = description
         self.creation_date = datetime.date.today()

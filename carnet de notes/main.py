@@ -7,19 +7,20 @@ my_carnet = Carnet()
 
 # print(type(datetime.date.today()))
 while True:
-    print("\nMENU")
+    print("\n   MENU")
     print("1 : Ajouter une note ")
     print("2 : Supprimer une note ")
     print("3 : Modifier une note ")
     print("4 : Chercher une note ")
     print("5 : Lister les notes ")
     print("0 : Quitter l'application")
-    res = int(input("Veuillez selectionner une option :"))
+    res = int(input("Veuillez selectionner une option : "))
 
     match res:
         case 0:
             print("Merci d'avoir notre application !")
             break
+
         case 1:
             title = input("\nEntrez le titre : ")
             description = input("Entrez la description : ")
@@ -27,7 +28,7 @@ while True:
             my_carnet.add_note(note)
 
         case 2:
-            note_id = input("Entrez le titre de la note : ")
+            note_id = input("Entrez l'id de la note : ")
             my_carnet.delete_note(note_id)
 
         case 3:
@@ -36,6 +37,6 @@ while True:
             pass
         case 5:
             print("La liste des notes : ")
-            my_carnet.get_all_notes()
+            my_carnet.get_all_note()
         case _:
             print("Veuillez entrer une option valide :")
