@@ -2,17 +2,17 @@ import datetime
 
 
 class Note:
-    compteur = 1
+    # compteur = 1
 
     def __init__(self, title, description):
-        self.id = self.compteur
+        # self.id = self.compteur
         self.title = title
         self.description = description
         self.creation_date = datetime.date.today()
-        Note.compteur += 1
+        # Note.compteur += 1
 
-    def get_id(self):
-        return self.id
+    # def get_id(self):
+    #     #return self.id
 
     def get_title(self):
         return self.title

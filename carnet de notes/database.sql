@@ -1,6 +1,6 @@
 
 CREATE TABLE Notes (
-	id int NOT NULL,
+	id int NOT NULL AUTO_INCREMENT,
 	titre VARCHAR(255) NOT NULL,
 	description VARCHAR(255),
 	date_creation DATE

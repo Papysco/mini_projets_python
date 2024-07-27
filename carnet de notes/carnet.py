@@ -3,26 +3,15 @@ import database
 
 
 class Carnet:
-    list_of_notes = {}
 
     def __init__(self):
         self.dao = database.Dao()
 
-    def save(self):
-        pass
-
     def add_note(self, p_note):
-        try:
-            self.dao.add_notes(p_note)
-            self.list_of_notes[p_note.get_id()] = p_note
-        except Exception as e:
-            print("Erreur d'insertion !", e)
+        self.dao.add_notes(p_note)
 
     def delete_note(self, id_note):
-        try:
-            self.dao.delete_notes(id_note)
-        except Exception as e:
-            print("Erreur d'ID potentiel ! ", e)
+        self.dao.delete_notes(id_note)
 
     def get_all_note(self):
         list_of_note = self.dao.get_all_notes()
@@ -33,12 +22,17 @@ class Carnet:
             print("Date :" + str(x[3]))
             print("\n")
 
-    def update_titre(self, id_note, title):
-        for key, value in self.list_of_notes.items():
-            if key == id_note:
-                value.set_title(title)
+    def update_note(self, id_note, texte, option):
+        if option == 1:
+            self.dao.update_titres(id_note, texte)
+        else:
+            self.dao.update_descriptions(id_note, texte)
 
-    def update_description(self, id_note, description):
-        for key, value in self.list_of_notes.items():
-            if key == id_note:
-                value.set_description(description)
+    def search_note(self, id_note):
+        note = self.dao.search(id_note)
+        print("Id :" + str(note[0]))
+        print("Titre :" + str(note[1]))
+        print("Description :" + str(note[2]))
+        print("Date :" + str(note[3]))
+        print("\n")
+
